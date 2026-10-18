@@ -39,7 +39,7 @@ def test_result_csvs_have_headers_only():
 
 def test_experiment_record_keeps_unmeasured_cells_pending():
     record = json.loads((ROOT / "evaluation" / "benchmark" / "experiment_record.json").read_text())
-    assert record["code_commit"] is None
+    assert record["code_commit"] == "d7b4855219534a02a733fd8b131c019701a96e0f"
     assert record["model_configuration"]["generation_model"] is None
     assert record["model_configuration"]["embedding_model"] == "all-MiniLM-L6-v2"
     assert record["status"] == "retrieval_measured_generation_not_run"

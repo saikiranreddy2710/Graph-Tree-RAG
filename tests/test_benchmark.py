@@ -236,7 +236,7 @@ class TestPublishedClaims:
         assert "0.898" in section
         assert section.count("Pending") >= 6
         assert "%" not in section
-        assert "Not yet run" in section
+        assert "d7b4855219534a02a733fd8b131c019701a96e0f" in section
         assert "gtr-closed-corpus-v1" in section
         assert "all-MiniLM-L6-v2" in section
 

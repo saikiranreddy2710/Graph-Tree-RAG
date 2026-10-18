@@ -24,7 +24,7 @@
   "experiment_date": "2026-10-18",
   "num_queries": 120,
   "num_queries_note": "Sealed test split. Dev split was not read.",
-  "code_commit": null,
+  "code_commit": "d7b4855219534a02a733fd8b131c019701a96e0f",
   "status": "retrieval_measured_generation_not_run",
   "metrics": {
     "faiss_only": {

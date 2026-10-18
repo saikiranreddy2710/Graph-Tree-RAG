@@ -333,7 +333,7 @@ Recall@5 and MRR were calculated on 2026-10-18 over the 120 held-out questions. 
 | Model configuration | Embedding `all-MiniLM-L6-v2`. Generation model not run. Ranking depth 10. Fusion weights 0.30 / 0.15 / 0.30 / 0.25, RRF k 60. |
 | Experiment date | 2026-10-18 |
 | Number of queries | 120 held-out test queries (160 curated; 40 reserved for development). |
-| Code commit | Not yet run |
+| Code commit | `d7b4855219534a02a733fd8b131c019701a96e0f` |
 
 Development questions may be used to choose fusion weights, prompts, and thresholds. The runner rejects a tune request that opens the test split. The corpus is original closed-archive text, not excerpts of the papers cited above. Definitions, passages, and questions are in [`evaluation/benchmark/`](evaluation/benchmark/README.md).
 
