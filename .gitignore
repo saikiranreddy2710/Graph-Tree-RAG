@@ -8,6 +8,8 @@ build/
 venv/
 .env
 data/
+evaluation/benchmark/runs/
+llm-quantization-benchmarks/benchmarks/throughput.csv
 *.faiss
 *.pkl
 *.pickle

@@ -1,0 +1,25 @@
+{
+  "dataset_version": "gtr-closed-corpus-v1",
+  "model_configuration": null,
+  "experiment_date": null,
+  "num_queries": 120,
+  "num_queries_note": "Sealed test size. Not a completed trial.",
+  "code_commit": null,
+  "status": "not_yet_run",
+  "metrics": {
+    "faiss_only": {
+      "multi_hop_answer_accuracy": "Pending",
+      "recall_at_5": "Pending",
+      "mrr": "Pending",
+      "citation_correctness": "Pending",
+      "p95_latency": "Pending"
+    },
+    "graph_tree_rag": {
+      "multi_hop_answer_accuracy": "Pending",
+      "recall_at_5": "Pending",
+      "mrr": "Pending",
+      "citation_correctness": "Pending",
+      "p95_latency": "Pending"
+    }
+  }
+}

@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import asyncio
 import json
-import sys
 from pathlib import Path
 
 import typer
@@ -150,6 +149,42 @@ def evaluate(
         "[yellow]Note: Full evaluation requires running the pipeline. "
         "Use the API or orchestrator for full eval.[/]"
     )
+
+
+benchmark_app = typer.Typer(help="Held-out FAISS-only vs four-channel benchmark")
+app.add_typer(benchmark_app, name="benchmark")
+
+
+@benchmark_app.command("validate")
+def benchmark_validate():
+    """Check the frozen corpus, sealed split, and answer keys."""
+    from evaluation.benchmark.dataset import validate_dataset
+
+    info = validate_dataset()
+    console.print_json(json.dumps(info))
+
+
+@benchmark_app.command("score")
+def benchmark_score(
+    predictions: Path = typer.Argument(..., help="Predictions JSON for one or two systems"),
+    other: Path = typer.Argument(None, help="Second system, when comparing both"),
+    purpose: str = typer.Option("publish", help="publish reads test only; tune reads dev only"),
+):
+    """Score a run. Pending metrics stay Pending and are not printed as percentages."""
+    from evaluation.benchmark.runner import compare_payloads, score_payload
+    from evaluation.benchmark.scoring import comparison_table
+
+    def _load(path: Path) -> dict:
+        with path.open(encoding="utf-8") as handle:
+            return json.load(handle)
+
+    if other is None:
+        score = score_payload(_load(predictions), purpose=purpose)
+        console.print(comparison_table({score.system: score}))
+        return
+
+    result = compare_payloads(_load(predictions), _load(other), purpose=purpose)
+    console.print(result["table"])
 
 
 @app.command()

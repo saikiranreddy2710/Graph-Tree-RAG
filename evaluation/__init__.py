@@ -1,1 +1,1 @@
-"""Evaluation: metrics, regression suite, ablation runner, failure analysis."""
+"""Evaluation: metrics, regression suite, ablation runner, paired benchmark."""
