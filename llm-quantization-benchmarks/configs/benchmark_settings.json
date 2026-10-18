@@ -1,0 +1,16 @@
+{
+  "base_model": null,
+  "hardware": null,
+  "context_length": null,
+  "offload_layers": null,
+  "prompt_tokens": 512,
+  "generation_tokens": 128,
+  "repeats": 5,
+  "precisions": ["f16", "q4_k_m"],
+  "model_files": {
+    "f16": "models/model-f16.gguf",
+    "q4": "models/model-q4.gguf"
+  },
+  "llama_bench": "build/bin/llama-bench",
+  "notes": "Use the same base model, hardware, context length, and offloading for both precisions. Repeat runs. Keep file size, RAM, GPU VRAM, and tokens per second in separate columns."
+}

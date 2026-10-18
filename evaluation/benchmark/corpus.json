@@ -1,0 +1,182 @@
+[
+  {
+    "id": "p01",
+    "title": "Harbor Light",
+    "text": "The Harbor Light stands on the north pier of Northline. Builders finished it in 1894. In 1910 the keeper was Edith Lang, who logged each storm in a bound book kept at the light."
+  },
+  {
+    "id": "p02",
+    "title": "Council term",
+    "text": "The 1910 keeper later sat on the Northline council. That council term ran from 1921 through 1924. Council minutes say the 1910 keeper moved the Lantern Ordinance."
+  },
+  {
+    "id": "p03",
+    "title": "Lantern Ordinance adoption",
+    "text": "The Lantern Ordinance was adopted in 1922. It requires every public answer from the archive to name the passage it relies on. The ordinance does not set a fine."
+  },
+  {
+    "id": "p04",
+    "title": "Stone Bridge",
+    "text": "Crews completed the Stone Bridge in 1908. The bridge deck joins Market Street to the grounds of the Harbor Light. The dedication plaque names no vendor."
+  },
+  {
+    "id": "p05",
+    "title": "Fish auction",
+    "text": "Market Street hosts the Saturday fish auction. In 1912 the auction master was Carlo Venn. The stalls stand on the street the Stone Bridge reaches."
+  },
+  {
+    "id": "p06",
+    "title": "Auction ledger",
+    "text": "The 1912 auction ledger totals 840 barrels. Archivists store that ledger in drawer B. The count includes only sales written in the book."
+  },
+  {
+    "id": "p07",
+    "title": "Drawer B",
+    "text": "Drawer B is a metal drawer in the East Stacks. Opening drawer B requires the night archivist key. The drawer also holds the scanning work order."
+  },
+  {
+    "id": "p08",
+    "title": "Night archivist",
+    "text": "The council created the night archivist role in 1930. Ruth Pell was the first person appointed. The role indexes records after the reading room closes."
+  },
+  {
+    "id": "p09",
+    "title": "Flood code",
+    "text": "The first night archivist assigned the code FLOOD-31 to the 1931 flood file. The same person wrote the note that records the Stone Bridge reopening. That note does not record the length of the closure."
+  },
+  {
+    "id": "p10",
+    "title": "Flood closure",
+    "text": "Floodwater closed the Stone Bridge for 17 days in 1931. The closure was caused by floodwater. The diary page with that count does not name an archivist."
+  },
+  {
+    "id": "p11",
+    "title": "Scanning contract",
+    "text": "In 2023 the archive hired Solstice Indexing to scan drawer B. The scanning contract caps payment at 120000 dollars per year. The contract does not name a parent company."
+  },
+  {
+    "id": "p12",
+    "title": "Parent company",
+    "text": "The scanning vendor is a subsidiary of Kite Paper Co. Kite Paper Co is headquartered in Duluth. This subsidiary note does not appear in the scanning contract."
+  },
+  {
+    "id": "p13",
+    "title": "Clause 4",
+    "text": "Clause 4 of the scanning contract forbids the archive from sending raw patron questions to the vendor. The curator signed clause 4. The clause does not state the yearly cap."
+  },
+  {
+    "id": "p14",
+    "title": "Curator",
+    "text": "Ada Voss became curator in 2018. The curator maintains the entity graph. The curator does not maintain the dense index."
+  },
+  {
+    "id": "p15",
+    "title": "Dense-index maintainer",
+    "text": "Luis Ortega joined the archive staff in 2020. Luis Ortega is the dense-index maintainer. The dense-index maintainer does not sign the published results table."
+  },
+  {
+    "id": "p16",
+    "title": "Auditor",
+    "text": "Mina Chen is the archive auditor. The auditor signs a results table only after the systems have been scored on the held-out questions. Drafts that quote sealed questions before that scoring are rejected."
+  },
+  {
+    "id": "p17",
+    "title": "Dense index",
+    "text": "The Harbor dense index is a FAISS flat inner-product index. Each passage is a 384-dimensional vector. The index stores no entity links."
+  },
+  {
+    "id": "p18",
+    "title": "Sparse channel",
+    "text": "The sparse channel is BM25 over the same passages. Staff use it when a question depends on an exact catalog code. A dense neighbor search can miss a code that appears only as a literal string."
+  },
+  {
+    "id": "p19",
+    "title": "Graph walk",
+    "text": "A graph walk starts at a named entity and follows edges for at most two hops. An edge is used only when its confidence is at least 0.5. Each hop returns the passage that stated the neighboring entity."
+  },
+  {
+    "id": "p20",
+    "title": "Summary tree",
+    "text": "The summary tree has three levels. Level 0 is the passage, level 1 is a section summary, and level 2 is a collection summary. A tree search scores every level in the same pass."
+  },
+  {
+    "id": "p21",
+    "title": "Fusion",
+    "text": "Fusion uses reciprocal rank fusion with constant k equal to 60. The channel weights are 0.30 for dense, 0.15 for sparse, 0.30 for graph, and 0.25 for tree."
+  },
+  {
+    "id": "p22",
+    "title": "March meeting",
+    "text": "On 2024-03-11 the curator added the graph edge from the scanning vendor to the parent company's city. The edge was added because a dense-only search had missed that link. The dense-index maintainer was present and did not change the index."
+  },
+  {
+    "id": "p23",
+    "title": "November meeting",
+    "text": "On 2024-11-02 the dense-index maintainer proposed new fusion weights. The auditor rejected the proposal because the weights had been chosen after reading sealed test questions. The published weights were left unchanged."
+  },
+  {
+    "id": "p24",
+    "title": "Patron question",
+    "text": "On 2025-01-12 a patron asked which company owns the scanning vendor. The ask was logged at the reference desk. The log does not name the owner or the yearly cap."
+  },
+  {
+    "id": "p25",
+    "title": "Noon bell",
+    "text": "The Saturday fish auction closes at noon. The noon bell ends new sales. The closing rule does not name the auction master or the barrel total."
+  },
+  {
+    "id": "p26",
+    "title": "Flood line",
+    "text": "The first night archivist chose the floor above the flood line for the flood diaries. Diary drawers sit on that same floor. The choice of floor does not say how many days the bridge was closed."
+  },
+  {
+    "id": "p27",
+    "title": "Key and cabinet",
+    "text": "The first copy of the key was issued to the first appointee. This key opens drawer B and the flood cabinet. It cannot open the safe that holds the original ordinance."
+  },
+  {
+    "id": "p28",
+    "title": "Curator safe",
+    "text": "The curator safe holds the original signed Lantern Ordinance. Only the curator has the combination. The curator safe is not on the diary floor."
+  },
+  {
+    "id": "p29",
+    "title": "Ordinance vote",
+    "text": "The council vote on the Lantern Ordinance was 6 to 1. The 1910 keeper cast the sixth yes vote. The single no vote is unnamed in the minutes."
+  },
+  {
+    "id": "p30",
+    "title": "Margin note",
+    "text": "The first night archivist initialed a margin note. The note says the bridge closure was not a construction delay. The note does not state the number of days."
+  },
+  {
+    "id": "p31",
+    "title": "Technician visit",
+    "text": "In June 2023 a technician from the parent company's city scanned drawer B. The visit log says the technician received no patron questions. The log does not name the technician's employer."
+  },
+  {
+    "id": "p32",
+    "title": "Dense miss",
+    "text": "A dense search for the parent of the scanning vendor returns the contract passage only. The returned text names the vendor and the yearly cap and does not name the parent. This note does not restate the cap's digits."
+  },
+  {
+    "id": "p33",
+    "title": "Graph hit",
+    "text": "A graph walk from the vendor entity reaches the corporate passage in one hop. The walk uses the edge added at the March 2024 meeting. This description does not name the parent company or the edge's calendar date."
+  },
+  {
+    "id": "p34",
+    "title": "Citation rule",
+    "text": "Citations name passage ids in brackets. An extra citation makes the citation set incorrect, and so does a missing gold passage. The two faults are scored the same way."
+  },
+  {
+    "id": "p35",
+    "title": "Model lock",
+    "text": "A paired run embeds passages and queries with one encoder checkpoint. The generation model is recorded separately. The encoder checkpoint and the generation model may differ, and each name stays fixed for both systems."
+  },
+  {
+    "id": "p36",
+    "title": "Collections",
+    "text": "The archive groups records into Harbor Minutes, Bridge Contracts, and Lantern Ordinances. Harbor Minutes hold the March 2024 meeting and the November 2024 meeting. Bridge Contracts hold the scanning agreement. Lantern Ordinances hold the adopted ordinance."
+  }
+]

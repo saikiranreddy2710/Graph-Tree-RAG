@@ -222,6 +222,7 @@ graph_tree_rag/
 │   ├── metrics.py                   # P@K, MRR, NDCG, entity coverage, etc.
 │   ├── regression_suite.py          # Baseline comparison with fail gates
 │   ├── ablation_runner.py           # 9-config comparative evaluation
+│   ├── benchmark/                   # Held-out FAISS-only vs 4-channel protocol
 │   ├── failure_analyzer.py          # Auto-categorize + recommendations
 │   └── test_queries/                # Curated gold-standard queries
 │
@@ -305,6 +306,37 @@ See [`config/settings.py`](config/settings.py) for the full list of ~50 configur
 
 ## Evaluation
 
+### Paired held-out comparison
+
+The published comparison is two systems on one frozen test split. Both use the same passages, the same questions, the same embedding checkpoint, and the same generation model and generation procedure. Recall@5 and MRR come from the ranked passage list. Multi-hop answer accuracy and citation correctness come from the generated answer. p95 latency is end-to-end wall-clock time. Those measurements are not substitutes for one another.
+
+| System | Retrieval | Generation |
+| --- | --- | --- |
+| FAISS-only | Dense FAISS only (`vector_only`) | Same model and procedure as the other column |
+| Graph-Tree RAG | Four channels: dense, BM25, graph, and tree (`hybrid_no_hyde`) | Same model and procedure as the other column |
+
+HyDE, CRAG, speculative drafts, and self-rag stay off for both columns so they do not confound the retrieval comparison. The nine-configuration runner further down still turns those stages on and off one at a time. That study is separate from this table. Do not publish an accuracy percentage until the cell has been calculated on the held-out test split.
+
+| Metric | FAISS-only | Graph-Tree RAG |
+| --- | --- | --- |
+| Multi-hop answer accuracy | Pending | Pending |
+| Recall@5 | 0.939 | 0.908 |
+| MRR | 0.939 | 0.898 |
+| Citation correctness | Pending | Pending |
+| p95 latency | Pending | Pending |
+
+Recall@5 and MRR were calculated on 2026-10-18 over the 120 held-out questions. On this run, FAISS-only scored higher on both. The four-channel system fused dense search, BM25, a surface-form co-occurrence graph (23 nodes, 14 edges), and a 6-cluster embedding tree. That run did not call the LLM entity extractor or the LLM summarizer, and it did not generate answers. Fusion weights stayed at their defaults. Multi-hop answer accuracy, citation correctness, and end-to-end p95 latency stay Pending. Retrieval-only p95 on this machine was 5.238 ms for FAISS-only and 10.375 ms for the four-channel system. That clock is not the headline p95.
+
+| Field | Value |
+| --- | --- |
+| Dataset version | `gtr-closed-corpus-v1` |
+| Model configuration | Embedding `all-MiniLM-L6-v2`. Generation model not run. Ranking depth 10. Fusion weights 0.30 / 0.15 / 0.30 / 0.25, RRF k 60. |
+| Experiment date | 2026-10-18 |
+| Number of queries | 120 held-out test queries (160 curated; 40 reserved for development). |
+| Code commit | `d7b4855219534a02a733fd8b131c019701a96e0f` |
+
+Development questions may be used to choose fusion weights, prompts, and thresholds. The runner rejects a tune request that opens the test split. The corpus is original closed-archive text, not excerpts of the papers cited above. Definitions, passages, and questions are in [`evaluation/benchmark/`](evaluation/benchmark/README.md).
+
 ### Built-In Metrics
 
 The evaluation harness computes retrieval and generation metrics without external dependencies:
@@ -331,11 +363,13 @@ The ablation runner tests 9 configurations to quantify each component's contribu
 | `vector_bm25` | Dense + sparse (hybrid search without structure) |
 | `graph_only` | Knowledge graph traversal alone |
 | `tree_only` | RAPTOR tree retrieval alone |
-| `hybrid_no_hyde` | Full 4-channel without HyDE augmentation |
+| `hybrid_no_hyde` | Four channels (dense, BM25, graph, tree). HyDE, CRAG, speculative drafts, and self-rag are off |
 | `hybrid_no_crag` | Full hybrid without corrective retrieval |
 | `hybrid_no_speculative` | Full hybrid with direct generation instead of MoT drafts |
 | `hybrid_no_self_rag` | Full hybrid without reflection/correction loops |
 | `full_hybrid` | Everything enabled (the complete pipeline) |
+
+The nine configurations remain the component study. They are not a substitute for the paired table above, and they do not fill any cell in that table.
 
 ### Failure Analysis
 

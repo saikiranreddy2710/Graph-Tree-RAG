@@ -1,0 +1,4705 @@
+{
+  "comparison": {
+    "dataset_version": "gtr-closed-corpus-v1",
+    "purpose": "publish",
+    "split": "test",
+    "table": "| Metric | faiss_only | graph_tree_rag |\n| --- | --- | --- |\n| Multi-hop answer accuracy | Pending | Pending |\n| Recall@5 | 0.939 | 0.908 |\n| MRR | 0.939 | 0.898 |\n| Citation correctness | Pending | Pending |\n| p95 latency | Pending | Pending |",
+    "systems": {
+      "faiss_only": {
+        "system": "faiss_only",
+        "split": "test",
+        "purpose": "publish",
+        "n_queries": 120,
+        "metrics": {
+          "recall_at_5": {
+            "metric": "recall_at_5",
+            "status": "measured",
+            "value": 0.938889,
+            "unit": "ratio",
+            "n": 120,
+            "definition": "Macro-average, over test questions, of the fraction of gold passage ids present in the first 5 ranked ids."
+          },
+          "mrr": {
+            "metric": "mrr",
+            "status": "measured",
+            "value": 0.938889,
+            "unit": "ratio",
+            "n": 120,
+            "definition": "Macro-average of 1/rank of the first gold passage. Rank starts at 1. A list with no gold passage scores 0. The full returned ranking is used."
+          },
+          "multi_hop_answer_accuracy": {
+            "metric": "multi_hop_answer_accuracy",
+            "status": "pending",
+            "value": null,
+            "unit": "ratio",
+            "n": 96,
+            "definition": "Fraction of test questions with hop_count >= 2 whose normalized answer contains every pre-registered answer key. Single-passage questions are excluded."
+          },
+          "citation_correctness": {
+            "metric": "citation_correctness",
+            "status": "pending",
+            "value": null,
+            "unit": "ratio",
+            "n": 0,
+            "definition": "Fraction of test questions whose cited passage-id set equals the gold passage-id set. An extra id and a missing id are both incorrect."
+          },
+          "p95_latency_ms": {
+            "metric": "p95_latency_ms",
+            "status": "pending",
+            "value": null,
+            "unit": "ms",
+            "n": 0,
+            "definition": "Nearest-rank 95th percentile of per-query end-to-end latency in milliseconds. This is not the mean, not file size, and not tokens per second."
+          }
+        }
+      },
+      "graph_tree_rag": {
+        "system": "graph_tree_rag",
+        "split": "test",
+        "purpose": "publish",
+        "n_queries": 120,
+        "metrics": {
+          "recall_at_5": {
+            "metric": "recall_at_5",
+            "status": "measured",
+            "value": 0.908333,
+            "unit": "ratio",
+            "n": 120,
+            "definition": "Macro-average, over test questions, of the fraction of gold passage ids present in the first 5 ranked ids."
+          },
+          "mrr": {
+            "metric": "mrr",
+            "status": "measured",
+            "value": 0.898274,
+            "unit": "ratio",
+            "n": 120,
+            "definition": "Macro-average of 1/rank of the first gold passage. Rank starts at 1. A list with no gold passage scores 0. The full returned ranking is used."
+          },
+          "multi_hop_answer_accuracy": {
+            "metric": "multi_hop_answer_accuracy",
+            "status": "pending",
+            "value": null,
+            "unit": "ratio",
+            "n": 96,
+            "definition": "Fraction of test questions with hop_count >= 2 whose normalized answer contains every pre-registered answer key. Single-passage questions are excluded."
+          },
+          "citation_correctness": {
+            "metric": "citation_correctness",
+            "status": "pending",
+            "value": null,
+            "unit": "ratio",
+            "n": 0,
+            "definition": "Fraction of test questions whose cited passage-id set equals the gold passage-id set. An extra id and a missing id are both incorrect."
+          },
+          "p95_latency_ms": {
+            "metric": "p95_latency_ms",
+            "status": "pending",
+            "value": null,
+            "unit": "ms",
+            "n": 0,
+            "definition": "Nearest-rank 95th percentile of per-query end-to-end latency in milliseconds. This is not the mean, not file size, and not tokens per second."
+          }
+        }
+      }
+    },
+    "passages": 36
+  },
+  "index": {
+    "passages": 36,
+    "graph_nodes": 23,
+    "graph_edges": 14,
+    "tree_nodes": 42,
+    "embedding_model": "all-MiniLM-L6-v2",
+    "graph_builder": "surface_cooccurrence",
+    "tree_builder": "kmeans_clusters_not_llm_summaries",
+    "generation": "not_run",
+    "retrieval_p95_ms": {
+      "faiss_only": 5.238,
+      "graph_tree_rag": 10.375
+    }
+  },
+  "faiss_only": {
+    "system": "faiss_only",
+    "dataset_version": "gtr-closed-corpus-v1",
+    "split": "test",
+    "generation_model": null,
+    "embedding_model": "all-MiniLM-L6-v2",
+    "temperature": null,
+    "max_tokens": null,
+    "ranking_depth": 10,
+    "predictions": [
+      {
+        "query_id": "q013",
+        "retrieved_ids": [
+          "p13",
+          "p24",
+          "p31",
+          "p32",
+          "p16",
+          "p18",
+          "p29",
+          "p03",
+          "p20",
+          "p12"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.503
+      },
+      {
+        "query_id": "q014",
+        "retrieved_ids": [
+          "p14",
+          "p22",
+          "p33",
+          "p15",
+          "p19",
+          "p08",
+          "p28",
+          "p13",
+          "p24",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.533
+      },
+      {
+        "query_id": "q015",
+        "retrieved_ids": [
+          "p15",
+          "p22",
+          "p17",
+          "p14",
+          "p23",
+          "p13",
+          "p08",
+          "p11",
+          "p36",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.359
+      },
+      {
+        "query_id": "q016",
+        "retrieved_ids": [
+          "p16",
+          "p20",
+          "p32",
+          "p34",
+          "p35",
+          "p13",
+          "p11",
+          "p29",
+          "p30",
+          "p21"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.175
+      },
+      {
+        "query_id": "q017",
+        "retrieved_ids": [
+          "p17",
+          "p21",
+          "p23",
+          "p18",
+          "p15",
+          "p14",
+          "p06",
+          "p22",
+          "p01",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.088
+      },
+      {
+        "query_id": "q018",
+        "retrieved_ids": [
+          "p18",
+          "p21",
+          "p17",
+          "p22",
+          "p15",
+          "p11",
+          "p14",
+          "p35",
+          "p32",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.848
+      },
+      {
+        "query_id": "q019",
+        "retrieved_ids": [
+          "p19",
+          "p33",
+          "p22",
+          "p26",
+          "p09",
+          "p14",
+          "p11",
+          "p21",
+          "p30",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.834
+      },
+      {
+        "query_id": "q020",
+        "retrieved_ids": [
+          "p20",
+          "p21",
+          "p14",
+          "p06",
+          "p32",
+          "p19",
+          "p26",
+          "p17",
+          "p18",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.899
+      },
+      {
+        "query_id": "q021",
+        "retrieved_ids": [
+          "p21",
+          "p23",
+          "p17",
+          "p18",
+          "p20",
+          "p14",
+          "p16",
+          "p15",
+          "p35",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.755
+      },
+      {
+        "query_id": "q022",
+        "retrieved_ids": [
+          "p33",
+          "p22",
+          "p30",
+          "p19",
+          "p26",
+          "p32",
+          "p31",
+          "p24",
+          "p11",
+          "p12"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.426
+      },
+      {
+        "query_id": "q023",
+        "retrieved_ids": [
+          "p23",
+          "p30",
+          "p21",
+          "p26",
+          "p33",
+          "p24",
+          "p14",
+          "p34",
+          "p10",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.219
+      },
+      {
+        "query_id": "q024",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p12",
+          "p11",
+          "p32",
+          "p13",
+          "p22",
+          "p33",
+          "p36",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.195
+      },
+      {
+        "query_id": "q025",
+        "retrieved_ids": [
+          "p25",
+          "p05",
+          "p36",
+          "p04",
+          "p30",
+          "p10",
+          "p26",
+          "p06",
+          "p09",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.921
+      },
+      {
+        "query_id": "q026",
+        "retrieved_ids": [
+          "p26",
+          "p28",
+          "p09",
+          "p10",
+          "p22",
+          "p01",
+          "p08",
+          "p05",
+          "p14",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.974
+      },
+      {
+        "query_id": "q027",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p08",
+          "p30",
+          "p26",
+          "p11",
+          "p28",
+          "p31",
+          "p16",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.501
+      },
+      {
+        "query_id": "q028",
+        "retrieved_ids": [
+          "p28",
+          "p27",
+          "p03",
+          "p02",
+          "p36",
+          "p29",
+          "p12",
+          "p01",
+          "p09",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.158
+      },
+      {
+        "query_id": "q029",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p28",
+          "p36",
+          "p08",
+          "p09",
+          "p01",
+          "p04",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.765
+      },
+      {
+        "query_id": "q030",
+        "retrieved_ids": [
+          "p30",
+          "p09",
+          "p10",
+          "p04",
+          "p26",
+          "p34",
+          "p36",
+          "p05",
+          "p33",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.907
+      },
+      {
+        "query_id": "q031",
+        "retrieved_ids": [
+          "p31",
+          "p11",
+          "p24",
+          "p07",
+          "p32",
+          "p12",
+          "p22",
+          "p13",
+          "p08",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.981
+      },
+      {
+        "query_id": "q032",
+        "retrieved_ids": [
+          "p32",
+          "p24",
+          "p11",
+          "p22",
+          "p18",
+          "p31",
+          "p13",
+          "p12",
+          "p15",
+          "p17"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.518
+      },
+      {
+        "query_id": "q033",
+        "retrieved_ids": [
+          "p33",
+          "p19",
+          "p32",
+          "p31",
+          "p24",
+          "p12",
+          "p30",
+          "p22",
+          "p11",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.175
+      },
+      {
+        "query_id": "q034",
+        "retrieved_ids": [
+          "p34",
+          "p09",
+          "p30",
+          "p10",
+          "p06",
+          "p27",
+          "p26",
+          "p03",
+          "p24",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.419
+      },
+      {
+        "query_id": "q035",
+        "retrieved_ids": [
+          "p35",
+          "p09",
+          "p28",
+          "p27",
+          "p21",
+          "p18",
+          "p16",
+          "p19",
+          "p36",
+          "p34"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.648
+      },
+      {
+        "query_id": "q036",
+        "retrieved_ids": [
+          "p24",
+          "p32",
+          "p11",
+          "p13",
+          "p12",
+          "p36",
+          "p15",
+          "p31",
+          "p22",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 3.801
+      },
+      {
+        "query_id": "q053",
+        "retrieved_ids": [
+          "p22",
+          "p14",
+          "p33",
+          "p28",
+          "p13",
+          "p11",
+          "p08",
+          "p02",
+          "p26",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.055
+      },
+      {
+        "query_id": "q054",
+        "retrieved_ids": [
+          "p23",
+          "p15",
+          "p21",
+          "p22",
+          "p14",
+          "p17",
+          "p24",
+          "p08",
+          "p11",
+          "p18"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.089
+      },
+      {
+        "query_id": "q055",
+        "retrieved_ids": [
+          "p23",
+          "p16",
+          "p21",
+          "p30",
+          "p34",
+          "p11",
+          "p32",
+          "p15",
+          "p24",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.766
+      },
+      {
+        "query_id": "q056",
+        "retrieved_ids": [
+          "p24",
+          "p13",
+          "p32",
+          "p11",
+          "p31",
+          "p12",
+          "p33",
+          "p36",
+          "p22",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.025
+      },
+      {
+        "query_id": "q057",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p32",
+          "p12",
+          "p11",
+          "p13",
+          "p33",
+          "p22",
+          "p08",
+          "p07"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.548
+      },
+      {
+        "query_id": "q058",
+        "retrieved_ids": [
+          "p11",
+          "p24",
+          "p31",
+          "p32",
+          "p13",
+          "p07",
+          "p12",
+          "p22",
+          "p16",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.701
+      },
+      {
+        "query_id": "q059",
+        "retrieved_ids": [
+          "p31",
+          "p24",
+          "p12",
+          "p32",
+          "p11",
+          "p08",
+          "p02",
+          "p04",
+          "p03",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.662
+      },
+      {
+        "query_id": "q060",
+        "retrieved_ids": [
+          "p31",
+          "p13",
+          "p24",
+          "p16",
+          "p32",
+          "p08",
+          "p03",
+          "p30",
+          "p36",
+          "p18"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.62
+      },
+      {
+        "query_id": "q061",
+        "retrieved_ids": [
+          "p26",
+          "p27",
+          "p07",
+          "p28",
+          "p09",
+          "p08",
+          "p30",
+          "p10",
+          "p01",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.058
+      },
+      {
+        "query_id": "q062",
+        "retrieved_ids": [
+          "p27",
+          "p07",
+          "p28",
+          "p08",
+          "p30",
+          "p31",
+          "p26",
+          "p32",
+          "p11",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.769
+      },
+      {
+        "query_id": "q063",
+        "retrieved_ids": [
+          "p03",
+          "p28",
+          "p27",
+          "p02",
+          "p29",
+          "p36",
+          "p01",
+          "p09",
+          "p25",
+          "p04"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.751
+      },
+      {
+        "query_id": "q064",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p28",
+          "p36",
+          "p09",
+          "p08",
+          "p25",
+          "p04",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.796
+      },
+      {
+        "query_id": "q065",
+        "retrieved_ids": [
+          "p30",
+          "p09",
+          "p10",
+          "p26",
+          "p04",
+          "p36",
+          "p25",
+          "p05",
+          "p33",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.413
+      },
+      {
+        "query_id": "q066",
+        "retrieved_ids": [
+          "p30",
+          "p08",
+          "p26",
+          "p10",
+          "p09",
+          "p07",
+          "p36",
+          "p13",
+          "p06",
+          "p28"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.821
+      },
+      {
+        "query_id": "q067",
+        "retrieved_ids": [
+          "p10",
+          "p09",
+          "p04",
+          "p26",
+          "p30",
+          "p36",
+          "p05",
+          "p01",
+          "p25",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.5
+      },
+      {
+        "query_id": "q068",
+        "retrieved_ids": [
+          "p32",
+          "p11",
+          "p24",
+          "p13",
+          "p22",
+          "p31",
+          "p12",
+          "p18",
+          "p15",
+          "p33"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.649
+      },
+      {
+        "query_id": "q069",
+        "retrieved_ids": [
+          "p32",
+          "p17",
+          "p11",
+          "p18",
+          "p22",
+          "p24",
+          "p31",
+          "p15",
+          "p33",
+          "p34"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.624
+      },
+      {
+        "query_id": "q070",
+        "retrieved_ids": [
+          "p33",
+          "p30",
+          "p19",
+          "p09",
+          "p26",
+          "p22",
+          "p04",
+          "p24",
+          "p10",
+          "p11"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.634
+      },
+      {
+        "query_id": "q071",
+        "retrieved_ids": [
+          "p33",
+          "p19",
+          "p31",
+          "p13",
+          "p24",
+          "p03",
+          "p12",
+          "p11",
+          "p02",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.403
+      },
+      {
+        "query_id": "q072",
+        "retrieved_ids": [
+          "p36",
+          "p33",
+          "p24",
+          "p30",
+          "p13",
+          "p06",
+          "p08",
+          "p26",
+          "p11",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.618
+      },
+      {
+        "query_id": "q073",
+        "retrieved_ids": [
+          "p24",
+          "p13",
+          "p11",
+          "p32",
+          "p36",
+          "p12",
+          "p31",
+          "p15",
+          "p22",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.362
+      },
+      {
+        "query_id": "q074",
+        "retrieved_ids": [
+          "p03",
+          "p36",
+          "p02",
+          "p29",
+          "p28",
+          "p27",
+          "p34",
+          "p13",
+          "p09",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.65
+      },
+      {
+        "query_id": "q075",
+        "retrieved_ids": [
+          "p21",
+          "p23",
+          "p17",
+          "p18",
+          "p14",
+          "p15",
+          "p22",
+          "p35",
+          "p24",
+          "p12"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.242
+      },
+      {
+        "query_id": "q076",
+        "retrieved_ids": [
+          "p05",
+          "p25",
+          "p06",
+          "p04",
+          "p30",
+          "p10",
+          "p02",
+          "p26",
+          "p09",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.208
+      },
+      {
+        "query_id": "q077",
+        "retrieved_ids": [
+          "p06",
+          "p25",
+          "p05",
+          "p04",
+          "p36",
+          "p10",
+          "p09",
+          "p02",
+          "p24",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.572
+      },
+      {
+        "query_id": "q078",
+        "retrieved_ids": [
+          "p01",
+          "p04",
+          "p36",
+          "p10",
+          "p09",
+          "p30",
+          "p03",
+          "p26",
+          "p05",
+          "p17"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.706
+      },
+      {
+        "query_id": "q079",
+        "retrieved_ids": [
+          "p08",
+          "p07",
+          "p26",
+          "p30",
+          "p27",
+          "p10",
+          "p28",
+          "p11",
+          "p31",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 6.719
+      },
+      {
+        "query_id": "q080",
+        "retrieved_ids": [
+          "p13",
+          "p14",
+          "p28",
+          "p31",
+          "p08",
+          "p24",
+          "p03",
+          "p16",
+          "p22",
+          "p02"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.568
+      },
+      {
+        "query_id": "q081",
+        "retrieved_ids": [
+          "p35",
+          "p27",
+          "p28",
+          "p16",
+          "p13",
+          "p18",
+          "p07",
+          "p12",
+          "p32",
+          "p11"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.8
+      },
+      {
+        "query_id": "q082",
+        "retrieved_ids": [
+          "p34",
+          "p03",
+          "p36",
+          "p09",
+          "p30",
+          "p27",
+          "p10",
+          "p29",
+          "p02",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.73
+      },
+      {
+        "query_id": "q083",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p32",
+          "p13",
+          "p34",
+          "p12",
+          "p11",
+          "p22",
+          "p30",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.476
+      },
+      {
+        "query_id": "q084",
+        "retrieved_ids": [
+          "p35",
+          "p17",
+          "p15",
+          "p22",
+          "p18",
+          "p23",
+          "p21",
+          "p14",
+          "p16",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.805
+      },
+      {
+        "query_id": "q085",
+        "retrieved_ids": [
+          "p26",
+          "p10",
+          "p09",
+          "p30",
+          "p04",
+          "p36",
+          "p01",
+          "p28",
+          "p05",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.641
+      },
+      {
+        "query_id": "q086",
+        "retrieved_ids": [
+          "p24",
+          "p33",
+          "p12",
+          "p22",
+          "p32",
+          "p11",
+          "p31",
+          "p13",
+          "p19",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.948
+      },
+      {
+        "query_id": "q087",
+        "retrieved_ids": [
+          "p17",
+          "p15",
+          "p22",
+          "p14",
+          "p23",
+          "p18",
+          "p11",
+          "p13",
+          "p21",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.368
+      },
+      {
+        "query_id": "q088",
+        "retrieved_ids": [
+          "p21",
+          "p18",
+          "p23",
+          "p17",
+          "p14",
+          "p35",
+          "p15",
+          "p12",
+          "p20",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.264
+      },
+      {
+        "query_id": "q089",
+        "retrieved_ids": [
+          "p20",
+          "p06",
+          "p14",
+          "p33",
+          "p36",
+          "p13",
+          "p15",
+          "p08",
+          "p32",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.538
+      },
+      {
+        "query_id": "q090",
+        "retrieved_ids": [
+          "p08",
+          "p26",
+          "p30",
+          "p10",
+          "p07",
+          "p28",
+          "p01",
+          "p09",
+          "p31",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.688
+      },
+      {
+        "query_id": "q091",
+        "retrieved_ids": [
+          "p09",
+          "p10",
+          "p30",
+          "p26",
+          "p27",
+          "p08",
+          "p34",
+          "p01",
+          "p36",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.103
+      },
+      {
+        "query_id": "q092",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p06",
+          "p11",
+          "p33",
+          "p26",
+          "p08",
+          "p32",
+          "p20",
+          "p31"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.425
+      },
+      {
+        "query_id": "q093",
+        "retrieved_ids": [
+          "p13",
+          "p24",
+          "p32",
+          "p31",
+          "p18",
+          "p11",
+          "p36",
+          "p16",
+          "p30",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.411
+      },
+      {
+        "query_id": "q094",
+        "retrieved_ids": [
+          "p28",
+          "p15",
+          "p13",
+          "p14",
+          "p27",
+          "p36",
+          "p08",
+          "p22",
+          "p24",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.673
+      },
+      {
+        "query_id": "q095",
+        "retrieved_ids": [
+          "p33",
+          "p32",
+          "p12",
+          "p31",
+          "p24",
+          "p30",
+          "p11",
+          "p04",
+          "p17",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.358
+      },
+      {
+        "query_id": "q096",
+        "retrieved_ids": [
+          "p33",
+          "p22",
+          "p19",
+          "p32",
+          "p20",
+          "p17",
+          "p11",
+          "p18",
+          "p14",
+          "p15"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.569
+      },
+      {
+        "query_id": "q097",
+        "retrieved_ids": [
+          "p03",
+          "p29",
+          "p02",
+          "p28",
+          "p36",
+          "p08",
+          "p01",
+          "p04",
+          "p27",
+          "p09"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.405
+      },
+      {
+        "query_id": "q098",
+        "retrieved_ids": [
+          "p10",
+          "p04",
+          "p09",
+          "p30",
+          "p26",
+          "p05",
+          "p36",
+          "p01",
+          "p25",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.494
+      },
+      {
+        "query_id": "q099",
+        "retrieved_ids": [
+          "p17",
+          "p22",
+          "p15",
+          "p14",
+          "p32",
+          "p23",
+          "p18",
+          "p11",
+          "p33",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.875
+      },
+      {
+        "query_id": "q100",
+        "retrieved_ids": [
+          "p06",
+          "p26",
+          "p28",
+          "p07",
+          "p05",
+          "p24",
+          "p04",
+          "p25",
+          "p02",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.506
+      },
+      {
+        "query_id": "q109",
+        "retrieved_ids": [
+          "p18",
+          "p21",
+          "p17",
+          "p19",
+          "p22",
+          "p33",
+          "p14",
+          "p15",
+          "p09",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.817
+      },
+      {
+        "query_id": "q110",
+        "retrieved_ids": [
+          "p21",
+          "p19",
+          "p20",
+          "p22",
+          "p33",
+          "p23",
+          "p18",
+          "p14",
+          "p32",
+          "p17"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.765
+      },
+      {
+        "query_id": "q111",
+        "retrieved_ids": [
+          "p24",
+          "p32",
+          "p11",
+          "p31",
+          "p12",
+          "p13",
+          "p22",
+          "p33",
+          "p06",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.155
+      },
+      {
+        "query_id": "q112",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p26",
+          "p28",
+          "p30",
+          "p08",
+          "p06",
+          "p16",
+          "p32",
+          "p12"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.792
+      },
+      {
+        "query_id": "q113",
+        "retrieved_ids": [
+          "p33",
+          "p32",
+          "p36",
+          "p30",
+          "p11",
+          "p24",
+          "p22",
+          "p26",
+          "p12",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.234
+      },
+      {
+        "query_id": "q114",
+        "retrieved_ids": [
+          "p06",
+          "p05",
+          "p25",
+          "p04",
+          "p24",
+          "p02",
+          "p32",
+          "p10",
+          "p13",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.847
+      },
+      {
+        "query_id": "q115",
+        "retrieved_ids": [
+          "p09",
+          "p26",
+          "p08",
+          "p30",
+          "p10",
+          "p27",
+          "p36",
+          "p28",
+          "p07",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.198
+      },
+      {
+        "query_id": "q116",
+        "retrieved_ids": [
+          "p31",
+          "p24",
+          "p13",
+          "p11",
+          "p32",
+          "p07",
+          "p16",
+          "p08",
+          "p12",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.018
+      },
+      {
+        "query_id": "q117",
+        "retrieved_ids": [
+          "p32",
+          "p33",
+          "p19",
+          "p22",
+          "p20",
+          "p17",
+          "p11",
+          "p18",
+          "p14",
+          "p34"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.66
+      },
+      {
+        "query_id": "q118",
+        "retrieved_ids": [
+          "p22",
+          "p14",
+          "p21",
+          "p15",
+          "p23",
+          "p17",
+          "p18",
+          "p33",
+          "p13",
+          "p19"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.084
+      },
+      {
+        "query_id": "q119",
+        "retrieved_ids": [
+          "p29",
+          "p02",
+          "p03",
+          "p36",
+          "p30",
+          "p27",
+          "p09",
+          "p28",
+          "p08",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.836
+      },
+      {
+        "query_id": "q120",
+        "retrieved_ids": [
+          "p01",
+          "p04",
+          "p10",
+          "p09",
+          "p36",
+          "p30",
+          "p26",
+          "p25",
+          "p03",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.963
+      },
+      {
+        "query_id": "q121",
+        "retrieved_ids": [
+          "p35",
+          "p34",
+          "p16",
+          "p27",
+          "p09",
+          "p13",
+          "p32",
+          "p28",
+          "p18",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.202
+      },
+      {
+        "query_id": "q122",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p08",
+          "p30",
+          "p26",
+          "p10",
+          "p28",
+          "p06",
+          "p31",
+          "p11"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.162
+      },
+      {
+        "query_id": "q123",
+        "retrieved_ids": [
+          "p09",
+          "p26",
+          "p18",
+          "p10",
+          "p36",
+          "p30",
+          "p27",
+          "p35",
+          "p24",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.728
+      },
+      {
+        "query_id": "q124",
+        "retrieved_ids": [
+          "p21",
+          "p20",
+          "p18",
+          "p23",
+          "p17",
+          "p14",
+          "p09",
+          "p35",
+          "p15",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.923
+      },
+      {
+        "query_id": "q125",
+        "retrieved_ids": [
+          "p21",
+          "p23",
+          "p18",
+          "p22",
+          "p14",
+          "p09",
+          "p33",
+          "p30",
+          "p19",
+          "p15"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.748
+      },
+      {
+        "query_id": "q126",
+        "retrieved_ids": [
+          "p31",
+          "p13",
+          "p24",
+          "p32",
+          "p16",
+          "p36",
+          "p03",
+          "p11",
+          "p12",
+          "p33"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.29
+      },
+      {
+        "query_id": "q127",
+        "retrieved_ids": [
+          "p36",
+          "p23",
+          "p30",
+          "p08",
+          "p24",
+          "p33",
+          "p26",
+          "p06",
+          "p13",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.238
+      },
+      {
+        "query_id": "q128",
+        "retrieved_ids": [
+          "p04",
+          "p01",
+          "p05",
+          "p25",
+          "p06",
+          "p36",
+          "p10",
+          "p30",
+          "p02",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.977
+      },
+      {
+        "query_id": "q129",
+        "retrieved_ids": [
+          "p09",
+          "p30",
+          "p27",
+          "p10",
+          "p26",
+          "p08",
+          "p02",
+          "p34",
+          "p01",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.37
+      },
+      {
+        "query_id": "q130",
+        "retrieved_ids": [
+          "p06",
+          "p25",
+          "p05",
+          "p27",
+          "p07",
+          "p24",
+          "p04",
+          "p30",
+          "p26",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.924
+      },
+      {
+        "query_id": "q131",
+        "retrieved_ids": [
+          "p22",
+          "p33",
+          "p19",
+          "p09",
+          "p30",
+          "p26",
+          "p14",
+          "p02",
+          "p10",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.119
+      },
+      {
+        "query_id": "q132",
+        "retrieved_ids": [
+          "p32",
+          "p11",
+          "p24",
+          "p22",
+          "p13",
+          "p33",
+          "p31",
+          "p12",
+          "p18",
+          "p15"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.769
+      },
+      {
+        "query_id": "q133",
+        "retrieved_ids": [
+          "p35",
+          "p23",
+          "p13",
+          "p16",
+          "p18",
+          "p09",
+          "p29",
+          "p32",
+          "p20",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.276
+      },
+      {
+        "query_id": "q134",
+        "retrieved_ids": [
+          "p02",
+          "p29",
+          "p03",
+          "p01",
+          "p28",
+          "p08",
+          "p04",
+          "p36",
+          "p27",
+          "p30"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.778
+      },
+      {
+        "query_id": "q135",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p32",
+          "p11",
+          "p12",
+          "p07",
+          "p13",
+          "p22",
+          "p33",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.027
+      },
+      {
+        "query_id": "q136",
+        "retrieved_ids": [
+          "p19",
+          "p21",
+          "p33",
+          "p22",
+          "p23",
+          "p18",
+          "p12",
+          "p11",
+          "p30",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.79
+      },
+      {
+        "query_id": "q137",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p28",
+          "p01",
+          "p36",
+          "p04",
+          "p08",
+          "p27",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.911
+      },
+      {
+        "query_id": "q138",
+        "retrieved_ids": [
+          "p26",
+          "p07",
+          "p09",
+          "p27",
+          "p10",
+          "p30",
+          "p04",
+          "p05",
+          "p01",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.703
+      },
+      {
+        "query_id": "q139",
+        "retrieved_ids": [
+          "p13",
+          "p16",
+          "p24",
+          "p31",
+          "p32",
+          "p29",
+          "p05",
+          "p30",
+          "p18",
+          "p33"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.197
+      },
+      {
+        "query_id": "q140",
+        "retrieved_ids": [
+          "p21",
+          "p18",
+          "p23",
+          "p17",
+          "p14",
+          "p15",
+          "p35",
+          "p09",
+          "p22",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.673
+      },
+      {
+        "query_id": "q145",
+        "retrieved_ids": [
+          "p06",
+          "p10",
+          "p09",
+          "p26",
+          "p30",
+          "p04",
+          "p25",
+          "p05",
+          "p36",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.701
+      },
+      {
+        "query_id": "q146",
+        "retrieved_ids": [
+          "p02",
+          "p08",
+          "p29",
+          "p28",
+          "p01",
+          "p03",
+          "p26",
+          "p30",
+          "p36",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 5.257
+      },
+      {
+        "query_id": "q147",
+        "retrieved_ids": [
+          "p09",
+          "p10",
+          "p25",
+          "p26",
+          "p30",
+          "p05",
+          "p04",
+          "p36",
+          "p06",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.651
+      },
+      {
+        "query_id": "q148",
+        "retrieved_ids": [
+          "p22",
+          "p19",
+          "p33",
+          "p14",
+          "p15",
+          "p11",
+          "p17",
+          "p20",
+          "p24",
+          "p31"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.832
+      },
+      {
+        "query_id": "q149",
+        "retrieved_ids": [
+          "p33",
+          "p22",
+          "p19",
+          "p30",
+          "p29",
+          "p16",
+          "p32",
+          "p13",
+          "p02",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.895
+      },
+      {
+        "query_id": "q150",
+        "retrieved_ids": [
+          "p28",
+          "p03",
+          "p02",
+          "p27",
+          "p13",
+          "p36",
+          "p29",
+          "p14",
+          "p22",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.628
+      },
+      {
+        "query_id": "q151",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p36",
+          "p28",
+          "p27",
+          "p09",
+          "p20",
+          "p26",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.458
+      },
+      {
+        "query_id": "q152",
+        "retrieved_ids": [
+          "p32",
+          "p11",
+          "p07",
+          "p22",
+          "p31",
+          "p18",
+          "p15",
+          "p24",
+          "p20",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.827
+      },
+      {
+        "query_id": "q153",
+        "retrieved_ids": [
+          "p05",
+          "p04",
+          "p25",
+          "p10",
+          "p09",
+          "p36",
+          "p30",
+          "p26",
+          "p06",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.674
+      },
+      {
+        "query_id": "q154",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p28",
+          "p31",
+          "p26",
+          "p02",
+          "p03",
+          "p06",
+          "p11",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.464
+      },
+      {
+        "query_id": "q155",
+        "retrieved_ids": [
+          "p18",
+          "p20",
+          "p21",
+          "p17",
+          "p22",
+          "p14",
+          "p32",
+          "p15",
+          "p35",
+          "p11"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.784
+      },
+      {
+        "query_id": "q156",
+        "retrieved_ids": [
+          "p14",
+          "p22",
+          "p23",
+          "p15",
+          "p13",
+          "p28",
+          "p26",
+          "p24",
+          "p08",
+          "p33"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.704
+      },
+      {
+        "query_id": "q157",
+        "retrieved_ids": [
+          "p26",
+          "p30",
+          "p28",
+          "p07",
+          "p09",
+          "p16",
+          "p27",
+          "p22",
+          "p10",
+          "p12"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.97
+      },
+      {
+        "query_id": "q158",
+        "retrieved_ids": [
+          "p35",
+          "p19",
+          "p22",
+          "p33",
+          "p18",
+          "p14",
+          "p09",
+          "p21",
+          "p11",
+          "p28"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.809
+      },
+      {
+        "query_id": "q159",
+        "retrieved_ids": [
+          "p10",
+          "p05",
+          "p04",
+          "p09",
+          "p25",
+          "p06",
+          "p26",
+          "p30",
+          "p01",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.933
+      },
+      {
+        "query_id": "q160",
+        "retrieved_ids": [
+          "p34",
+          "p19",
+          "p22",
+          "p33",
+          "p14",
+          "p20",
+          "p17",
+          "p15",
+          "p21",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 4.839
+      }
+    ]
+  },
+  "graph_tree_rag": {
+    "system": "graph_tree_rag",
+    "dataset_version": "gtr-closed-corpus-v1",
+    "split": "test",
+    "generation_model": null,
+    "embedding_model": "all-MiniLM-L6-v2",
+    "temperature": null,
+    "max_tokens": null,
+    "ranking_depth": 10,
+    "predictions": [
+      {
+        "query_id": "q013",
+        "retrieved_ids": [
+          "p13",
+          "p24",
+          "p16",
+          "p18",
+          "p31",
+          "p32",
+          "p29",
+          "p20",
+          "p34",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.188
+      },
+      {
+        "query_id": "q014",
+        "retrieved_ids": [
+          "p14",
+          "p22",
+          "p33",
+          "p13",
+          "p19",
+          "p08",
+          "p28",
+          "p15",
+          "p24",
+          "p17"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.476
+      },
+      {
+        "query_id": "q015",
+        "retrieved_ids": [
+          "p15",
+          "p22",
+          "p13",
+          "p11",
+          "p23",
+          "p08",
+          "p17",
+          "p14",
+          "p36",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.772
+      },
+      {
+        "query_id": "q016",
+        "retrieved_ids": [
+          "p16",
+          "p34",
+          "p32",
+          "p13",
+          "p20",
+          "p35",
+          "p21",
+          "p11",
+          "p29",
+          "p15"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.285
+      },
+      {
+        "query_id": "q017",
+        "retrieved_ids": [
+          "p17",
+          "p21",
+          "p18",
+          "p14",
+          "p15",
+          "p01",
+          "p23",
+          "p06",
+          "p22",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.692
+      },
+      {
+        "query_id": "q018",
+        "retrieved_ids": [
+          "p18",
+          "p35",
+          "p21",
+          "p17",
+          "p22",
+          "p15",
+          "p11",
+          "p14",
+          "p20",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.779
+      },
+      {
+        "query_id": "q019",
+        "retrieved_ids": [
+          "p19",
+          "p33",
+          "p22",
+          "p11",
+          "p09",
+          "p26",
+          "p14",
+          "p21",
+          "p30",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.781
+      },
+      {
+        "query_id": "q020",
+        "retrieved_ids": [
+          "p20",
+          "p14",
+          "p21",
+          "p32",
+          "p26",
+          "p06",
+          "p19",
+          "p35",
+          "p17",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.713
+      },
+      {
+        "query_id": "q021",
+        "retrieved_ids": [
+          "p21",
+          "p23",
+          "p20",
+          "p14",
+          "p15",
+          "p17",
+          "p18",
+          "p35",
+          "p16",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.544
+      },
+      {
+        "query_id": "q022",
+        "retrieved_ids": [
+          "p33",
+          "p32",
+          "p26",
+          "p30",
+          "p22",
+          "p19",
+          "p31",
+          "p24",
+          "p11",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.717
+      },
+      {
+        "query_id": "q023",
+        "retrieved_ids": [
+          "p23",
+          "p30",
+          "p26",
+          "p33",
+          "p24",
+          "p21",
+          "p14",
+          "p08",
+          "p10",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.007
+      },
+      {
+        "query_id": "q024",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p12",
+          "p11",
+          "p13",
+          "p32",
+          "p22",
+          "p33",
+          "p36",
+          "p04"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.495
+      },
+      {
+        "query_id": "q025",
+        "retrieved_ids": [
+          "p25",
+          "p05",
+          "p30",
+          "p10",
+          "p04",
+          "p06",
+          "p26",
+          "p36",
+          "p01",
+          "p33"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.099
+      },
+      {
+        "query_id": "q026",
+        "retrieved_ids": [
+          "p26",
+          "p09",
+          "p28",
+          "p01",
+          "p10",
+          "p08",
+          "p29",
+          "p22",
+          "p05",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.31
+      },
+      {
+        "query_id": "q027",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p11",
+          "p31",
+          "p08",
+          "p30",
+          "p26",
+          "p28",
+          "p06",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.606
+      },
+      {
+        "query_id": "q028",
+        "retrieved_ids": [
+          "p28",
+          "p03",
+          "p36",
+          "p01",
+          "p27",
+          "p29",
+          "p12",
+          "p02",
+          "p09",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.323
+      },
+      {
+        "query_id": "q029",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p28",
+          "p36",
+          "p08",
+          "p09",
+          "p01",
+          "p27",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.69
+      },
+      {
+        "query_id": "q030",
+        "retrieved_ids": [
+          "p30",
+          "p09",
+          "p04",
+          "p36",
+          "p10",
+          "p26",
+          "p05",
+          "p34",
+          "p22",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.094
+      },
+      {
+        "query_id": "q031",
+        "retrieved_ids": [
+          "p07",
+          "p31",
+          "p11",
+          "p24",
+          "p32",
+          "p22",
+          "p12",
+          "p08",
+          "p13",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.273
+      },
+      {
+        "query_id": "q032",
+        "retrieved_ids": [
+          "p32",
+          "p24",
+          "p22",
+          "p18",
+          "p12",
+          "p11",
+          "p31",
+          "p13",
+          "p17",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.801
+      },
+      {
+        "query_id": "q033",
+        "retrieved_ids": [
+          "p33",
+          "p19",
+          "p32",
+          "p22",
+          "p31",
+          "p12",
+          "p24",
+          "p30",
+          "p26",
+          "p14"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.552
+      },
+      {
+        "query_id": "q034",
+        "retrieved_ids": [
+          "p34",
+          "p09",
+          "p30",
+          "p06",
+          "p10",
+          "p27",
+          "p26",
+          "p24",
+          "p03",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.788
+      },
+      {
+        "query_id": "q035",
+        "retrieved_ids": [
+          "p35",
+          "p18",
+          "p21",
+          "p09",
+          "p28",
+          "p27",
+          "p34",
+          "p16",
+          "p19",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.774
+      },
+      {
+        "query_id": "q036",
+        "retrieved_ids": [
+          "p24",
+          "p32",
+          "p15",
+          "p13",
+          "p11",
+          "p12",
+          "p36",
+          "p22",
+          "p31",
+          "p07"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 7.273
+      },
+      {
+        "query_id": "q053",
+        "retrieved_ids": [
+          "p22",
+          "p14",
+          "p33",
+          "p13",
+          "p08",
+          "p28",
+          "p11",
+          "p26",
+          "p31",
+          "p02"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.83
+      },
+      {
+        "query_id": "q054",
+        "retrieved_ids": [
+          "p23",
+          "p15",
+          "p24",
+          "p22",
+          "p21",
+          "p08",
+          "p14",
+          "p17",
+          "p11",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.678
+      },
+      {
+        "query_id": "q055",
+        "retrieved_ids": [
+          "p23",
+          "p16",
+          "p32",
+          "p34",
+          "p11",
+          "p30",
+          "p21",
+          "p20",
+          "p24",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.366
+      },
+      {
+        "query_id": "q056",
+        "retrieved_ids": [
+          "p24",
+          "p13",
+          "p32",
+          "p11",
+          "p31",
+          "p12",
+          "p36",
+          "p22",
+          "p33",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.484
+      },
+      {
+        "query_id": "q057",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p32",
+          "p12",
+          "p11",
+          "p13",
+          "p22",
+          "p36",
+          "p33",
+          "p04"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.274
+      },
+      {
+        "query_id": "q058",
+        "retrieved_ids": [
+          "p07",
+          "p11",
+          "p24",
+          "p31",
+          "p32",
+          "p13",
+          "p22",
+          "p12",
+          "p30",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.132
+      },
+      {
+        "query_id": "q059",
+        "retrieved_ids": [
+          "p31",
+          "p24",
+          "p08",
+          "p32",
+          "p12",
+          "p27",
+          "p11",
+          "p04",
+          "p02",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.29
+      },
+      {
+        "query_id": "q060",
+        "retrieved_ids": [
+          "p31",
+          "p13",
+          "p08",
+          "p30",
+          "p24",
+          "p32",
+          "p16",
+          "p03",
+          "p36",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.3
+      },
+      {
+        "query_id": "q061",
+        "retrieved_ids": [
+          "p26",
+          "p27",
+          "p07",
+          "p09",
+          "p28",
+          "p01",
+          "p10",
+          "p08",
+          "p30",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.441
+      },
+      {
+        "query_id": "q062",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p28",
+          "p31",
+          "p08",
+          "p30",
+          "p32",
+          "p26",
+          "p02",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.678
+      },
+      {
+        "query_id": "q063",
+        "retrieved_ids": [
+          "p03",
+          "p28",
+          "p27",
+          "p36",
+          "p01",
+          "p29",
+          "p09",
+          "p02",
+          "p22",
+          "p10"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.149
+      },
+      {
+        "query_id": "q064",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p28",
+          "p36",
+          "p08",
+          "p09",
+          "p25",
+          "p01",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.529
+      },
+      {
+        "query_id": "q065",
+        "retrieved_ids": [
+          "p30",
+          "p09",
+          "p04",
+          "p36",
+          "p10",
+          "p26",
+          "p05",
+          "p25",
+          "p22",
+          "p02"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.143
+      },
+      {
+        "query_id": "q066",
+        "retrieved_ids": [
+          "p30",
+          "p08",
+          "p36",
+          "p26",
+          "p10",
+          "p09",
+          "p07",
+          "p13",
+          "p06",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.603
+      },
+      {
+        "query_id": "q067",
+        "retrieved_ids": [
+          "p10",
+          "p04",
+          "p09",
+          "p05",
+          "p36",
+          "p01",
+          "p26",
+          "p30",
+          "p02",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.947
+      },
+      {
+        "query_id": "q068",
+        "retrieved_ids": [
+          "p32",
+          "p11",
+          "p22",
+          "p18",
+          "p24",
+          "p13",
+          "p31",
+          "p12",
+          "p14",
+          "p17"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.462
+      },
+      {
+        "query_id": "q069",
+        "retrieved_ids": [
+          "p32",
+          "p17",
+          "p11",
+          "p18",
+          "p22",
+          "p31",
+          "p24",
+          "p15",
+          "p33",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.313
+      },
+      {
+        "query_id": "q070",
+        "retrieved_ids": [
+          "p33",
+          "p30",
+          "p09",
+          "p04",
+          "p19",
+          "p22",
+          "p26",
+          "p24",
+          "p05",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.583
+      },
+      {
+        "query_id": "q071",
+        "retrieved_ids": [
+          "p33",
+          "p31",
+          "p19",
+          "p12",
+          "p13",
+          "p24",
+          "p03",
+          "p11",
+          "p02",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.496
+      },
+      {
+        "query_id": "q072",
+        "retrieved_ids": [
+          "p36",
+          "p33",
+          "p24",
+          "p30",
+          "p08",
+          "p13",
+          "p06",
+          "p05",
+          "p32",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.016
+      },
+      {
+        "query_id": "q073",
+        "retrieved_ids": [
+          "p24",
+          "p13",
+          "p15",
+          "p32",
+          "p11",
+          "p36",
+          "p12",
+          "p22",
+          "p31",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.841
+      },
+      {
+        "query_id": "q074",
+        "retrieved_ids": [
+          "p03",
+          "p27",
+          "p02",
+          "p36",
+          "p29",
+          "p28",
+          "p09",
+          "p34",
+          "p01",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.183
+      },
+      {
+        "query_id": "q075",
+        "retrieved_ids": [
+          "p21",
+          "p23",
+          "p35",
+          "p17",
+          "p18",
+          "p14",
+          "p15",
+          "p34",
+          "p22",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.92
+      },
+      {
+        "query_id": "q076",
+        "retrieved_ids": [
+          "p25",
+          "p05",
+          "p06",
+          "p30",
+          "p10",
+          "p24",
+          "p04",
+          "p02",
+          "p01",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.688
+      },
+      {
+        "query_id": "q077",
+        "retrieved_ids": [
+          "p06",
+          "p25",
+          "p05",
+          "p10",
+          "p09",
+          "p36",
+          "p24",
+          "p04",
+          "p26",
+          "p01"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.517
+      },
+      {
+        "query_id": "q078",
+        "retrieved_ids": [
+          "p01",
+          "p04",
+          "p10",
+          "p09",
+          "p05",
+          "p36",
+          "p30",
+          "p03",
+          "p26",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.344
+      },
+      {
+        "query_id": "q079",
+        "retrieved_ids": [
+          "p07",
+          "p08",
+          "p11",
+          "p26",
+          "p27",
+          "p30",
+          "p10",
+          "p31",
+          "p28",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.075
+      },
+      {
+        "query_id": "q080",
+        "retrieved_ids": [
+          "p13",
+          "p28",
+          "p14",
+          "p31",
+          "p08",
+          "p24",
+          "p16",
+          "p03",
+          "p10",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.568
+      },
+      {
+        "query_id": "q081",
+        "retrieved_ids": [
+          "p35",
+          "p16",
+          "p13",
+          "p18",
+          "p27",
+          "p28",
+          "p12",
+          "p34",
+          "p07",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.455
+      },
+      {
+        "query_id": "q082",
+        "retrieved_ids": [
+          "p34",
+          "p03",
+          "p09",
+          "p30",
+          "p29",
+          "p36",
+          "p27",
+          "p10",
+          "p26",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.652
+      },
+      {
+        "query_id": "q083",
+        "retrieved_ids": [
+          "p24",
+          "p31",
+          "p32",
+          "p13",
+          "p34",
+          "p22",
+          "p12",
+          "p11",
+          "p30",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.177
+      },
+      {
+        "query_id": "q084",
+        "retrieved_ids": [
+          "p35",
+          "p17",
+          "p15",
+          "p22",
+          "p18",
+          "p14",
+          "p23",
+          "p21",
+          "p20",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.457
+      },
+      {
+        "query_id": "q085",
+        "retrieved_ids": [
+          "p26",
+          "p10",
+          "p36",
+          "p04",
+          "p28",
+          "p09",
+          "p30",
+          "p01",
+          "p22",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.292
+      },
+      {
+        "query_id": "q086",
+        "retrieved_ids": [
+          "p24",
+          "p33",
+          "p22",
+          "p12",
+          "p32",
+          "p31",
+          "p11",
+          "p19",
+          "p13",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.642
+      },
+      {
+        "query_id": "q087",
+        "retrieved_ids": [
+          "p17",
+          "p15",
+          "p22",
+          "p23",
+          "p20",
+          "p14",
+          "p18",
+          "p11",
+          "p13",
+          "p34"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.07
+      },
+      {
+        "query_id": "q088",
+        "retrieved_ids": [
+          "p21",
+          "p18",
+          "p35",
+          "p23",
+          "p17",
+          "p15",
+          "p20",
+          "p12",
+          "p14",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.544
+      },
+      {
+        "query_id": "q089",
+        "retrieved_ids": [
+          "p20",
+          "p33",
+          "p06",
+          "p14",
+          "p15",
+          "p36",
+          "p13",
+          "p24",
+          "p32",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.971
+      },
+      {
+        "query_id": "q090",
+        "retrieved_ids": [
+          "p08",
+          "p26",
+          "p28",
+          "p30",
+          "p07",
+          "p10",
+          "p36",
+          "p01",
+          "p03",
+          "p31"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.62
+      },
+      {
+        "query_id": "q091",
+        "retrieved_ids": [
+          "p09",
+          "p10",
+          "p34",
+          "p30",
+          "p26",
+          "p27",
+          "p08",
+          "p01",
+          "p22",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.794
+      },
+      {
+        "query_id": "q092",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p06",
+          "p11",
+          "p26",
+          "p33",
+          "p08",
+          "p32",
+          "p20",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 8.927
+      },
+      {
+        "query_id": "q093",
+        "retrieved_ids": [
+          "p13",
+          "p24",
+          "p18",
+          "p16",
+          "p32",
+          "p31",
+          "p11",
+          "p36",
+          "p20",
+          "p09"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.052
+      },
+      {
+        "query_id": "q094",
+        "retrieved_ids": [
+          "p15",
+          "p27",
+          "p13",
+          "p14",
+          "p08",
+          "p28",
+          "p36",
+          "p24",
+          "p22",
+          "p16"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.246
+      },
+      {
+        "query_id": "q095",
+        "retrieved_ids": [
+          "p33",
+          "p32",
+          "p30",
+          "p12",
+          "p31",
+          "p24",
+          "p11",
+          "p04",
+          "p07",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.107
+      },
+      {
+        "query_id": "q096",
+        "retrieved_ids": [
+          "p33",
+          "p22",
+          "p19",
+          "p32",
+          "p20",
+          "p17",
+          "p34",
+          "p11",
+          "p18",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.451
+      },
+      {
+        "query_id": "q097",
+        "retrieved_ids": [
+          "p03",
+          "p29",
+          "p02",
+          "p28",
+          "p36",
+          "p01",
+          "p08",
+          "p04",
+          "p27",
+          "p10"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.68
+      },
+      {
+        "query_id": "q098",
+        "retrieved_ids": [
+          "p10",
+          "p04",
+          "p09",
+          "p05",
+          "p01",
+          "p30",
+          "p26",
+          "p36",
+          "p02",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.18
+      },
+      {
+        "query_id": "q099",
+        "retrieved_ids": [
+          "p17",
+          "p22",
+          "p32",
+          "p11",
+          "p14",
+          "p18",
+          "p15",
+          "p23",
+          "p33",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.224
+      },
+      {
+        "query_id": "q100",
+        "retrieved_ids": [
+          "p06",
+          "p26",
+          "p28",
+          "p05",
+          "p24",
+          "p07",
+          "p04",
+          "p02",
+          "p32",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.159
+      },
+      {
+        "query_id": "q109",
+        "retrieved_ids": [
+          "p18",
+          "p21",
+          "p33",
+          "p19",
+          "p17",
+          "p22",
+          "p14",
+          "p15",
+          "p13",
+          "p09"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.68
+      },
+      {
+        "query_id": "q110",
+        "retrieved_ids": [
+          "p21",
+          "p19",
+          "p20",
+          "p22",
+          "p33",
+          "p23",
+          "p35",
+          "p18",
+          "p14",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.592
+      },
+      {
+        "query_id": "q111",
+        "retrieved_ids": [
+          "p24",
+          "p32",
+          "p31",
+          "p11",
+          "p12",
+          "p13",
+          "p22",
+          "p33",
+          "p36",
+          "p05"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.302
+      },
+      {
+        "query_id": "q112",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p06",
+          "p26",
+          "p28",
+          "p16",
+          "p30",
+          "p08",
+          "p32",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.563
+      },
+      {
+        "query_id": "q113",
+        "retrieved_ids": [
+          "p33",
+          "p32",
+          "p36",
+          "p30",
+          "p22",
+          "p11",
+          "p24",
+          "p26",
+          "p05",
+          "p31"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.375
+      },
+      {
+        "query_id": "q114",
+        "retrieved_ids": [
+          "p06",
+          "p05",
+          "p25",
+          "p24",
+          "p02",
+          "p10",
+          "p04",
+          "p30",
+          "p29",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.676
+      },
+      {
+        "query_id": "q115",
+        "retrieved_ids": [
+          "p09",
+          "p26",
+          "p08",
+          "p27",
+          "p10",
+          "p28",
+          "p36",
+          "p30",
+          "p03",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.253
+      },
+      {
+        "query_id": "q116",
+        "retrieved_ids": [
+          "p07",
+          "p31",
+          "p24",
+          "p08",
+          "p13",
+          "p11",
+          "p32",
+          "p16",
+          "p22",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.064
+      },
+      {
+        "query_id": "q117",
+        "retrieved_ids": [
+          "p32",
+          "p33",
+          "p19",
+          "p22",
+          "p20",
+          "p17",
+          "p11",
+          "p34",
+          "p18",
+          "p31"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.881
+      },
+      {
+        "query_id": "q118",
+        "retrieved_ids": [
+          "p22",
+          "p33",
+          "p14",
+          "p21",
+          "p15",
+          "p23",
+          "p17",
+          "p18",
+          "p13",
+          "p19"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.749
+      },
+      {
+        "query_id": "q119",
+        "retrieved_ids": [
+          "p29",
+          "p02",
+          "p30",
+          "p27",
+          "p03",
+          "p36",
+          "p09",
+          "p28",
+          "p08",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.766
+      },
+      {
+        "query_id": "q120",
+        "retrieved_ids": [
+          "p01",
+          "p04",
+          "p10",
+          "p09",
+          "p05",
+          "p36",
+          "p26",
+          "p30",
+          "p25",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.888
+      },
+      {
+        "query_id": "q121",
+        "retrieved_ids": [
+          "p35",
+          "p34",
+          "p16",
+          "p13",
+          "p32",
+          "p18",
+          "p27",
+          "p09",
+          "p28",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.717
+      },
+      {
+        "query_id": "q122",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p06",
+          "p08",
+          "p30",
+          "p26",
+          "p28",
+          "p10",
+          "p31",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.493
+      },
+      {
+        "query_id": "q123",
+        "retrieved_ids": [
+          "p09",
+          "p26",
+          "p18",
+          "p10",
+          "p30",
+          "p27",
+          "p35",
+          "p21",
+          "p20",
+          "p36"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.037
+      },
+      {
+        "query_id": "q124",
+        "retrieved_ids": [
+          "p21",
+          "p20",
+          "p18",
+          "p35",
+          "p23",
+          "p17",
+          "p14",
+          "p09",
+          "p26",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.716
+      },
+      {
+        "query_id": "q125",
+        "retrieved_ids": [
+          "p21",
+          "p23",
+          "p22",
+          "p18",
+          "p09",
+          "p33",
+          "p19",
+          "p14",
+          "p30",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.839
+      },
+      {
+        "query_id": "q126",
+        "retrieved_ids": [
+          "p31",
+          "p13",
+          "p24",
+          "p32",
+          "p36",
+          "p12",
+          "p16",
+          "p03",
+          "p11",
+          "p33"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.458
+      },
+      {
+        "query_id": "q127",
+        "retrieved_ids": [
+          "p36",
+          "p24",
+          "p08",
+          "p33",
+          "p30",
+          "p23",
+          "p26",
+          "p05",
+          "p09",
+          "p25"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.315
+      },
+      {
+        "query_id": "q128",
+        "retrieved_ids": [
+          "p04",
+          "p01",
+          "p10",
+          "p05",
+          "p30",
+          "p09",
+          "p25",
+          "p36",
+          "p06",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.049
+      },
+      {
+        "query_id": "q129",
+        "retrieved_ids": [
+          "p09",
+          "p30",
+          "p27",
+          "p10",
+          "p26",
+          "p08",
+          "p02",
+          "p32",
+          "p24",
+          "p34"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.656
+      },
+      {
+        "query_id": "q130",
+        "retrieved_ids": [
+          "p06",
+          "p25",
+          "p05",
+          "p27",
+          "p24",
+          "p07",
+          "p04",
+          "p26",
+          "p32",
+          "p11"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.847
+      },
+      {
+        "query_id": "q131",
+        "retrieved_ids": [
+          "p22",
+          "p19",
+          "p09",
+          "p30",
+          "p33",
+          "p26",
+          "p14",
+          "p05",
+          "p04",
+          "p03"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.247
+      },
+      {
+        "query_id": "q132",
+        "retrieved_ids": [
+          "p32",
+          "p11",
+          "p22",
+          "p24",
+          "p13",
+          "p33",
+          "p18",
+          "p12",
+          "p31",
+          "p20"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.736
+      },
+      {
+        "query_id": "q133",
+        "retrieved_ids": [
+          "p35",
+          "p23",
+          "p16",
+          "p13",
+          "p18",
+          "p32",
+          "p20",
+          "p09",
+          "p29",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.404
+      },
+      {
+        "query_id": "q134",
+        "retrieved_ids": [
+          "p02",
+          "p29",
+          "p01",
+          "p08",
+          "p04",
+          "p03",
+          "p27",
+          "p28",
+          "p10",
+          "p09"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.836
+      },
+      {
+        "query_id": "q135",
+        "retrieved_ids": [
+          "p07",
+          "p24",
+          "p31",
+          "p11",
+          "p32",
+          "p12",
+          "p13",
+          "p22",
+          "p08",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.056
+      },
+      {
+        "query_id": "q136",
+        "retrieved_ids": [
+          "p19",
+          "p21",
+          "p33",
+          "p12",
+          "p22",
+          "p23",
+          "p18",
+          "p11",
+          "p35",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.562
+      },
+      {
+        "query_id": "q137",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p02",
+          "p28",
+          "p01",
+          "p36",
+          "p08",
+          "p27",
+          "p04",
+          "p26"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.157
+      },
+      {
+        "query_id": "q138",
+        "retrieved_ids": [
+          "p07",
+          "p26",
+          "p04",
+          "p05",
+          "p09",
+          "p27",
+          "p10",
+          "p30",
+          "p06",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.656
+      },
+      {
+        "query_id": "q139",
+        "retrieved_ids": [
+          "p13",
+          "p16",
+          "p24",
+          "p29",
+          "p32",
+          "p18",
+          "p05",
+          "p31",
+          "p30",
+          "p15"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.748
+      },
+      {
+        "query_id": "q140",
+        "retrieved_ids": [
+          "p21",
+          "p18",
+          "p23",
+          "p17",
+          "p14",
+          "p15",
+          "p35",
+          "p22",
+          "p09",
+          "p32"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.483
+      },
+      {
+        "query_id": "q145",
+        "retrieved_ids": [
+          "p10",
+          "p09",
+          "p04",
+          "p25",
+          "p06",
+          "p26",
+          "p30",
+          "p05",
+          "p36",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.497
+      },
+      {
+        "query_id": "q146",
+        "retrieved_ids": [
+          "p02",
+          "p08",
+          "p29",
+          "p26",
+          "p01",
+          "p36",
+          "p28",
+          "p03",
+          "p30",
+          "p10"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.155
+      },
+      {
+        "query_id": "q147",
+        "retrieved_ids": [
+          "p09",
+          "p25",
+          "p10",
+          "p05",
+          "p26",
+          "p30",
+          "p36",
+          "p04",
+          "p06",
+          "p27"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.593
+      },
+      {
+        "query_id": "q148",
+        "retrieved_ids": [
+          "p22",
+          "p19",
+          "p33",
+          "p11",
+          "p15",
+          "p20",
+          "p14",
+          "p17",
+          "p18",
+          "p23"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.575
+      },
+      {
+        "query_id": "q149",
+        "retrieved_ids": [
+          "p33",
+          "p22",
+          "p19",
+          "p29",
+          "p16",
+          "p32",
+          "p34",
+          "p30",
+          "p20",
+          "p02"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.962
+      },
+      {
+        "query_id": "q150",
+        "retrieved_ids": [
+          "p28",
+          "p03",
+          "p27",
+          "p13",
+          "p29",
+          "p14",
+          "p36",
+          "p02",
+          "p26",
+          "p22"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.057
+      },
+      {
+        "query_id": "q151",
+        "retrieved_ids": [
+          "p29",
+          "p03",
+          "p36",
+          "p27",
+          "p09",
+          "p02",
+          "p28",
+          "p01",
+          "p20",
+          "p08"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.58
+      },
+      {
+        "query_id": "q152",
+        "retrieved_ids": [
+          "p07",
+          "p32",
+          "p11",
+          "p22",
+          "p18",
+          "p31",
+          "p20",
+          "p34",
+          "p15",
+          "p24"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.768
+      },
+      {
+        "query_id": "q153",
+        "retrieved_ids": [
+          "p05",
+          "p04",
+          "p10",
+          "p09",
+          "p25",
+          "p36",
+          "p30",
+          "p26",
+          "p01",
+          "p06"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.455
+      },
+      {
+        "query_id": "q154",
+        "retrieved_ids": [
+          "p07",
+          "p27",
+          "p28",
+          "p31",
+          "p02",
+          "p06",
+          "p03",
+          "p26",
+          "p11",
+          "p29"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.235
+      },
+      {
+        "query_id": "q155",
+        "retrieved_ids": [
+          "p18",
+          "p20",
+          "p21",
+          "p22",
+          "p17",
+          "p35",
+          "p32",
+          "p14",
+          "p15",
+          "p19"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.389
+      },
+      {
+        "query_id": "q156",
+        "retrieved_ids": [
+          "p14",
+          "p22",
+          "p13",
+          "p26",
+          "p23",
+          "p15",
+          "p28",
+          "p24",
+          "p08",
+          "p10"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.745
+      },
+      {
+        "query_id": "q157",
+        "retrieved_ids": [
+          "p26",
+          "p30",
+          "p28",
+          "p09",
+          "p16",
+          "p27",
+          "p12",
+          "p32",
+          "p02",
+          "p07"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.866
+      },
+      {
+        "query_id": "q158",
+        "retrieved_ids": [
+          "p35",
+          "p19",
+          "p22",
+          "p33",
+          "p18",
+          "p09",
+          "p14",
+          "p11",
+          "p20",
+          "p13"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 10.196
+      },
+      {
+        "query_id": "q159",
+        "retrieved_ids": [
+          "p05",
+          "p04",
+          "p10",
+          "p09",
+          "p01",
+          "p25",
+          "p06",
+          "p26",
+          "p30",
+          "p02"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.612
+      },
+      {
+        "query_id": "q160",
+        "retrieved_ids": [
+          "p34",
+          "p19",
+          "p22",
+          "p33",
+          "p20",
+          "p14",
+          "p17",
+          "p11",
+          "p21",
+          "p09"
+        ],
+        "answer": null,
+        "citation_ids": null,
+        "latency_ms": null,
+        "retrieval_latency_ms": 9.815
+      }
+    ]
+  }
+}
