@@ -1,25 +1,59 @@
 {
   "dataset_version": "gtr-closed-corpus-v1",
-  "model_configuration": null,
-  "experiment_date": null,
+  "model_configuration": {
+    "embedding_model": "all-MiniLM-L6-v2",
+    "generation_model": null,
+    "temperature": null,
+    "max_tokens": null,
+    "ranking_depth": 10,
+    "fusion_weights": {
+      "vector": 0.3,
+      "bm25": 0.15,
+      "graph": 0.3,
+      "tree": 0.25
+    },
+    "fusion_rrf_k": 60,
+    "graph_builder": "surface_cooccurrence",
+    "graph_nodes": 23,
+    "graph_edges": 14,
+    "tree_builder": "kmeans_clusters_not_llm_summaries",
+    "tree_clusters": 6,
+    "llm_extraction": false,
+    "llm_summaries": false
+  },
+  "experiment_date": "2026-10-18",
   "num_queries": 120,
-  "num_queries_note": "Sealed test size. Not a completed trial.",
+  "num_queries_note": "Sealed test split. Dev split was not read.",
   "code_commit": null,
-  "status": "not_yet_run",
+  "status": "retrieval_measured_generation_not_run",
   "metrics": {
     "faiss_only": {
       "multi_hop_answer_accuracy": "Pending",
-      "recall_at_5": "Pending",
-      "mrr": "Pending",
+      "recall_at_5": 0.938889,
+      "mrr": 0.938889,
       "citation_correctness": "Pending",
-      "p95_latency": "Pending"
+      "p95_latency": "Pending",
+      "retrieval_p95_ms": 5.238
     },
     "graph_tree_rag": {
       "multi_hop_answer_accuracy": "Pending",
-      "recall_at_5": "Pending",
-      "mrr": "Pending",
+      "recall_at_5": 0.908333,
+      "mrr": 0.898274,
       "citation_correctness": "Pending",
-      "p95_latency": "Pending"
+      "p95_latency": "Pending",
+      "retrieval_p95_ms": 10.375
     }
-  }
+  },
+  "display_table": {
+    "faiss_only": {
+      "Recall@5": "0.939",
+      "MRR": "0.939"
+    },
+    "graph_tree_rag": {
+      "Recall@5": "0.908",
+      "MRR": "0.898"
+    }
+  },
+  "predictions": "evaluation/benchmark/published_run.json",
+  "notes": "Retrieval-only. Headline p95, multi-hop answer accuracy, and citation correctness were not calculated. The graph is corpus surface forms, not the LLM extractor. Tree parents are KMeans clusters, not LLM summaries. Weights were not changed after this run."
 }

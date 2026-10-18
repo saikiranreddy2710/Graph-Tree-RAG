@@ -72,7 +72,11 @@ A predictions file looks like this. Leave generation fields null until that stag
 }
 ```
 
-Both files in a comparison must carry the same dataset version, generation model, embedding model, temperature, max tokens, and ranking depth. The scored record should also store the experiment date, the query count, and the git commit. Those fields are `Not yet run` in the README until then.
+Both files in a comparison must carry the same dataset version, generation model, embedding model, temperature, max tokens, and ranking depth. The scored record should also store the experiment date, the query count, and the git commit.
+
+## Retrieval-only run on 2026-10-18
+
+`published_run.json` is a sealed-test retrieval run with `all-MiniLM-L6-v2`, ranking depth 10, and the default fusion weights. Generation was not called. The graph is surface-form co-occurrence, and tree parents are 6 KMeans clusters. Recall@5 was 0.939 for FAISS-only and 0.908 for the four-channel system. MRR was 0.939 and 0.898. Multi-hop answer accuracy, citation correctness, and end-to-end p95 were not calculated. Weights were not changed after the run.
 
 ## Provenance for a finished run
 

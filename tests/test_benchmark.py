@@ -1,5 +1,6 @@
 """Tests for the held-out FAISS-only vs four-channel benchmark."""
 
+import json
 from pathlib import Path
 
 import pytest
@@ -197,6 +198,26 @@ class TestScoring:
             compare_payloads(left, right, purpose="publish")
 
 
+class TestPublishedRun:
+    def test_saved_predictions_rescore_to_the_same_table(self):
+        payload = json.loads((ROOT / "evaluation" / "benchmark" / "published_run.json").read_text())
+        compared = compare_payloads(
+            payload["faiss_only"],
+            payload["graph_tree_rag"],
+            purpose="publish",
+        )
+        assert "0.939" in compared["table"]
+        assert "0.908" in compared["table"]
+        assert "0.898" in compared["table"]
+        assert "Pending" in compared["table"]
+        assert "%" not in compared["table"]
+        faiss = compared["systems"]["faiss_only"]["metrics"]
+        hybrid = compared["systems"]["graph_tree_rag"]["metrics"]
+        assert faiss["recall_at_5"]["value"] == pytest.approx(0.938889, abs=1e-6)
+        assert hybrid["mrr"]["value"] == pytest.approx(0.898274, abs=1e-6)
+        assert faiss["multi_hop_answer_accuracy"]["status"] == "pending"
+
+
 class TestPublishedClaims:
     def test_readme_table_is_pending(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -211,10 +232,13 @@ class TestPublishedClaims:
             "p95 latency",
         ):
             assert metric in section
-        assert section.count("Pending") >= 10
+        assert "0.939" in section and "0.908" in section
+        assert "0.898" in section
+        assert section.count("Pending") >= 6
         assert "%" not in section
         assert "Not yet run" in section
         assert "gtr-closed-corpus-v1" in section
+        assert "all-MiniLM-L6-v2" in section
 
     def test_nine_configurations_remain(self):
         names = [config.name for config in ABLATION_CONFIGS]

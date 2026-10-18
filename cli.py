@@ -187,6 +187,35 @@ def benchmark_score(
     console.print(result["table"])
 
 
+@benchmark_app.command("run")
+def benchmark_run(
+    out: Path = typer.Option(
+        Path("evaluation/benchmark/published_run.json"),
+        help="Where to write the scored retrieval run",
+    ),
+):
+    """Run FAISS-only and four-channel retrieval on the sealed test split."""
+    from evaluation.benchmark.execute import run_retrieval_benchmark
+    from evaluation.benchmark.runner import compare_payloads
+
+    executed = run_retrieval_benchmark()
+    compared = compare_payloads(
+        executed["faiss_only"],
+        executed["graph_tree_rag"],
+        purpose="publish",
+    )
+    out.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "comparison": compared,
+        "index": executed["index"],
+        "faiss_only": executed["faiss_only"],
+        "graph_tree_rag": executed["graph_tree_rag"],
+    }
+    out.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    console.print(compared["table"])
+    console.print(f"[green]Wrote {out}[/]")
+
+
 @app.command()
 def version():
     """Show version information."""

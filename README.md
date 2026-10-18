@@ -320,17 +320,19 @@ HyDE, CRAG, speculative drafts, and self-rag stay off for both columns so they d
 | Metric | FAISS-only | Graph-Tree RAG |
 | --- | --- | --- |
 | Multi-hop answer accuracy | Pending | Pending |
-| Recall@5 | Pending | Pending |
-| MRR | Pending | Pending |
+| Recall@5 | 0.939 | 0.908 |
+| MRR | 0.939 | 0.898 |
 | Citation correctness | Pending | Pending |
 | p95 latency | Pending | Pending |
+
+Recall@5 and MRR were calculated on 2026-10-18 over the 120 held-out questions. On this run, FAISS-only scored higher on both. The four-channel system fused dense search, BM25, a surface-form co-occurrence graph (23 nodes, 14 edges), and a 6-cluster embedding tree. That run did not call the LLM entity extractor or the LLM summarizer, and it did not generate answers. Fusion weights stayed at their defaults. Multi-hop answer accuracy, citation correctness, and end-to-end p95 latency stay Pending. Retrieval-only p95 on this machine was 5.238 ms for FAISS-only and 10.375 ms for the four-channel system. That clock is not the headline p95.
 
 | Field | Value |
 | --- | --- |
 | Dataset version | `gtr-closed-corpus-v1` |
-| Model configuration | Not yet run |
-| Experiment date | Not yet run |
-| Number of queries | 120 held-out test queries (160 curated; 40 reserved for development). This is the sealed test size, not a completed trial. |
+| Model configuration | Embedding `all-MiniLM-L6-v2`. Generation model not run. Ranking depth 10. Fusion weights 0.30 / 0.15 / 0.30 / 0.25, RRF k 60. |
+| Experiment date | 2026-10-18 |
+| Number of queries | 120 held-out test queries (160 curated; 40 reserved for development). |
 | Code commit | Not yet run |
 
 Development questions may be used to choose fusion weights, prompts, and thresholds. The runner rejects a tune request that opens the test split. The corpus is original closed-archive text, not excerpts of the papers cited above. Definitions, passages, and questions are in [`evaluation/benchmark/`](evaluation/benchmark/README.md).

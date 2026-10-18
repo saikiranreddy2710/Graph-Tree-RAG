@@ -37,11 +37,18 @@ def test_result_csvs_have_headers_only():
         ]
 
 
-def test_experiment_record_is_pending():
+def test_experiment_record_keeps_unmeasured_cells_pending():
     record = json.loads((ROOT / "evaluation" / "benchmark" / "experiment_record.json").read_text())
     assert record["code_commit"] is None
-    assert record["model_configuration"] is None
-    assert record["status"] == "not_yet_run"
+    assert record["model_configuration"]["generation_model"] is None
+    assert record["model_configuration"]["embedding_model"] == "all-MiniLM-L6-v2"
+    assert record["status"] == "retrieval_measured_generation_not_run"
     assert record["num_queries"] == 120
+    assert record["experiment_date"] == "2026-10-18"
     for system in ("faiss_only", "graph_tree_rag"):
-        assert set(record["metrics"][system].values()) == {"Pending"}
+        metrics = record["metrics"][system]
+        assert metrics["multi_hop_answer_accuracy"] == "Pending"
+        assert metrics["citation_correctness"] == "Pending"
+        assert metrics["p95_latency"] == "Pending"
+        assert isinstance(metrics["recall_at_5"], float)
+        assert isinstance(metrics["mrr"], float)
